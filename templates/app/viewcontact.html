@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+
+  </head>
+  <body>
+    {% include "app/navbaradmin.html" %}
+    <br>
+    <br>
+   
+{% if contacts%}
+<div class="container">
+  <table class="table table-hover table-condensed table-striped table-bordered">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Number</th>
+    <th>Email</th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+    <td colspan="4" rowspan="4">
+    <div class="links"></div>
+    </td>
+    </tr>
+    </tfoot>
+    <tbody>
+      {% for contact in contacts %}
+        <tr>
+          <td>{{contact.name}}</td>
+          <td>{{contact.number}}</td>
+          <td>{{contact.email}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    </table>
+</div>
+{%else%}
+<h1>Have 0 Contacts</h1>
+{%endif%}
+<br><br><br><br><br><br><br><br><br>
+  </body>
+</html>

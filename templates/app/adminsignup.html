@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+  <body>
+    {% include "app/navbar.html" %}
+    <br>
+    <br>
+    <div class="signup-form">
+        <form  method="post" class="form-horizontal">
+    			<center><h2 style="color:blue;">Signup</h2></center>
+
+{% csrf_token %}
+            {% for field in form %}
+            <div class="form-group text-center">
+              <label class="control-label col-xs-4">{{ field.label_tag }}</label>
+              <div class="col-xs-8">
+			  {{ field }}
+			
+               </div>
+            </div>
+            {% endfor %}
+
+    		<div class="form-group text-center">
+    			<div class="col-xs-8 col-xs-offset-4">
+            <button type="submit" class="btn btn-success btn-lg" style="border-radius:0px;">Sign Up</button>
+    			</div>
+    		</div>
+        </form>
+    	<div class="text-center">Already have an account? <a href="adminlogin">Login here</a></div>
+    </div>
+  </body>
+</html>
